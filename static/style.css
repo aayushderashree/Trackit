@@ -1,20 +1,15 @@
 .bg-nav {
     background: #12c2e9;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+    background: black;
+    background: black
 }
 
 
 
 .bg-home {
     background: #1FA2FF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to right, #000000, #000000, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #000000, #000000, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 
@@ -23,11 +18,11 @@ background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+
 }
 
 .bg-Logs {
-    background: #ef32d9;
+    background: #000000;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);
+    background: -webkit-linear-gradient(to right, #000000, #000000);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #89fffd, #ef32d9);
+    background: linear-gradient(to right, #000000, #000000);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
@@ -43,7 +38,25 @@ background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+
 
 
 h1 {
-    text-shadow: 0 1px white, 1px 0 white, 0 0px white;
+    color: white;
+    font-family: unset;
+}
+.navbar{
+    background: ivory;
+}
+.mt5{
+    margin-top: 5rem;
+}
+.color-black{
+    color: black;
+}
+.row{
+    align-content: center;
+    align-items: center;
+}
+.flek-cent{
+    display: flex;
+    justify-content: center;
 }
 
 
