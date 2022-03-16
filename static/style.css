@@ -58,5 +58,26 @@ h1 {
     display: flex;
     justify-content: center;
 }
+.log-centre{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.logs-color{
+    color: white !important;
+
+}
+.logs-color td{
+    color: white !important;
+}
+.edit-tracker{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.edit-tracker .row{
+    justify-content: center;
+}
 
 

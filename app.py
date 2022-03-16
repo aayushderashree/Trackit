@@ -78,8 +78,8 @@ def login_validation():
             return render_template('welcome.html')
         else:
             
-            usr = request.form.get('username')
-            pasw = request.form.get('password')
+            usr = request.form['username']
+            pasw = request.form['password']
             check1 = User.query.filter_by(username=usr).first()
             check2 = User.query.filter_by(password=pasw).first()
             
@@ -102,8 +102,8 @@ def register():
         if request.method=='GET':
             return render_template('register.html')
         if request.method=='POST':
-            name = request.form.get('uname')
-            pswrd = request.form.get('upass')
+            name = request.form['uname']
+            pswrd = request.form['upass']
             existing_user = User.query.filter_by(username=name).first()
             if existing_user is not None:
                 return render_template('register.html', error=1)
@@ -134,11 +134,11 @@ def dashboard(uid):
 @app.route('/add_tracker/<int:uid>', methods=['POST'])
 def addtracker(uid):
     if request.method=='POST':
-        t_name = request.form.get('tname')
-        t_desc = request.form.get('tdesc')
-        t_type = request.form.get('ttype')
+        t_name = request.form['tname']
+        t_desc = request.form['tdesc']
+        t_type = request.form['ttype']
         if t_type=='Multi-choice':
-            t_options= request.form.get('toptions')
+            t_options= request.form['toptions']
             track = Tracker(tracker_name=t_name, description=t_desc, tracker_type=t_type, user_id=uid ,options=t_options)
         else:
             track = Tracker(tracker_name=t_name, user_id=uid, description=t_desc, tracker_type=t_type)
@@ -157,8 +157,8 @@ def logs(tid):
         loggers=Log.query.filter_by(tracker_id=tid).all()
         return render_template("logs.html", track=track,c=trackers, d=trackers.trackers, loggers=loggers)
     else:
-        ttime = request.form.get("ttime")
-        tcomm = request.form.get("tcomm")
+        ttime = request.form["ttime"]
+        tcomm = request.form["tcomm"]
         print('\n', track.tracker_type, "\n")
         if track.tracker_type == "Multi-choice":
             ttype = request.form["ltype"]
@@ -166,7 +166,7 @@ def logs(tid):
 
         else:
 
-            tval = request.form.get("tval")
+            tval = request.form["tval"]
             log = Log(log_value=tval, comments=tcomm, tracker_id=tid, timestamp=ttime)
         db.session.add(log)
         db.session.commit()
@@ -183,8 +183,8 @@ def update_tracker(tid):
         
         return render_template('update_tracker.html', trackfil=trackfil)
     else:
-        newtname = request.form.get('newtname')
-        newtdesc = request.form.get('newtdesc')
+        newtname = request.form['newtname']
+        newtdesc = request.form['newtdesc']
     
         trackfil.tracker_name = newtname
         trackfil.description = newtdesc
@@ -212,18 +212,18 @@ def update_log(tid):
     if request.method=='GET':
         return render_template('update_log.html', logfil=logfil, trackfil=trackfil)
     else:
-        newtime = request.form.get('newtime')
-        newcomm = request.form.get('newcomm')
+        newtime = request.form['newtime']
+        newcomm = request.form['newcomm']
 
         logfil.tracker_name = newtime
         logfil.description = newcomm
         logfil.timestamp = newtime
         logfil.comments = newcomm
         if trackfil.tracker_type=='Numerical':
-            newval = request.form.get('newval')
+            newval = request.form['newval']
             logfil.log_value = newval
         else:
-            newchoice = request.form.get('newchoice')
+            newchoice = request.form['newchoice']
             logfil.log_value = newchoice
         
         db.session.add(logfil)
